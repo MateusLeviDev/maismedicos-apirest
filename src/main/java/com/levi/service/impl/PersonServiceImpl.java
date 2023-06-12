@@ -2,42 +2,56 @@ package com.levi.service.impl;
 
 import com.levi.dto.request.PersonRequestDTO;
 import com.levi.dto.response.PersonResponseDTO;
+import com.levi.models.Person;
 import com.levi.repository.PersonRepository;
 import com.levi.service.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.levi.util.PersonMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Primary
+@RequiredArgsConstructor
 public class PersonServiceImpl implements PersonService {
 
-    private PersonRepository personRepository;
+    private PersonRepository personRepository; //inject person repository
+    private final PersonMapper personMapper; //alternative model mapper
 
     @Override
     public PersonResponseDTO findById(Long id) {
-        return null;
+        return personMapper.toPersonDTO(returnPerson(id));
     }
 
     @Override
     public List<PersonResponseDTO> findAll() {
-        return null;
+        return personMapper.toPeopleDTO(personRepository.findAll());
     }
 
     @Override
     public PersonResponseDTO register(PersonRequestDTO personDTO) {
-        return null;
+        Person person = personMapper.toPerson(personDTO);
+        return personMapper.toPersonDTO(personRepository.save(person));
     }
 
     @Override
-    public PersonResponseDTO update(PersonRequestDTO personDTO) {
-        return null;
+    public PersonResponseDTO update( Long id, PersonRequestDTO personDTO) {
+        Person person = returnPerson(id);
+        personMapper.updatePersonData(person, personDTO);
+        return personMapper.toPersonDTO(personRepository.save(person));
     }
 
     @Override
     public String delete(Long id) {
-        return null;
+        personRepository.deleteById(id);
+        return "Person ID"+id+"removed";
+    }
+
+    private Person returnPerson(Long id) {
+        return personRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Person not found!"));
     }
 }
