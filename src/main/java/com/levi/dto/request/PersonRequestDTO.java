@@ -1,5 +1,8 @@
 package com.levi.dto.request;
 
+import lombok.Getter;
+
+@Getter
 public class PersonRequestDTO {
 
     private String name;
