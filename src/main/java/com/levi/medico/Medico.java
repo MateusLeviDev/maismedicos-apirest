@@ -35,4 +35,13 @@ public class Medico {
         this.specialty = dadosCadastroMedico.specialty();
         this.address = new Address(dadosCadastroMedico.address());
     }
+
+    public void atualizarInformacoes(DadosAtualizarMedico dados) {
+        if(dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if(dados.endereco() != null) {
+            this.address.atualizarInfo(dados.endereco());
+        }
+    }
 }
