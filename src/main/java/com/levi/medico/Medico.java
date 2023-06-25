@@ -27,8 +27,10 @@ public class Medico {
 
     @Embedded //ficar em uma classe separada, mas na db os campos desa classe fazem parte da mesma tabela de medicos
     private Address  address;
+    private boolean ativo;
 
     public Medico(DadosCadastroMedico dadosCadastroMedico) {
+        this.ativo = true;
         this.nome = dadosCadastroMedico.nome();
         this.email = dadosCadastroMedico.email();
         this.crm = dadosCadastroMedico.crm();
@@ -43,5 +45,9 @@ public class Medico {
         if(dados.endereco() != null) {
             this.address.atualizarInfo(dados.endereco());
         }
+    }
+
+    public void excluir() {
+        this.ativo = false;
     }
 }
