@@ -1,6 +1,10 @@
 package com.levi.controller;
 
-import com.levi.medico.*;
+import com.levi.domain.medico.DadosAtualizarMedico;
+import com.levi.domain.medico.DadosListagemMedico;
+import com.levi.domain.medico.Medico;
+import com.levi.domain.medico.MedicoRepository;
+import com.levi.domain.medico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,8 +13,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/medicos")
