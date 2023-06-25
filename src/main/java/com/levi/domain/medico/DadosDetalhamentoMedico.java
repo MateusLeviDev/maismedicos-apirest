@@ -1,6 +1,6 @@
-package com.levi.medico;
+package com.levi.domain.medico;
 
-import com.levi.address.Address;
+import com.levi.domain.address.Address;
 
 public record DadosDetalhamentoMedico(Long id, String nome, String email, String crm, Specialty specialty, Address address) {
 

@@ -1,4 +1,4 @@
-package com.levi.address;
+package com.levi.domain.address;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

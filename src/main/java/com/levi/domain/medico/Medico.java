@@ -1,6 +1,6 @@
-package com.levi.medico;
+package com.levi.domain.medico;
 
-import com.levi.address.Address;
+import com.levi.domain.address.Address;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -26,7 +26,7 @@ public class Medico {
     private Specialty specialty;
 
     @Embedded //ficar em uma classe separada, mas na db os campos desa classe fazem parte da mesma tabela de medicos
-    private Address  address;
+    private Address address;
     private boolean ativo;
 
     public Medico(DadosCadastroMedico dadosCadastroMedico) {

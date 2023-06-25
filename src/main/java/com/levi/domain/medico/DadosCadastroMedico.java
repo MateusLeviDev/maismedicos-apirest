@@ -1,6 +1,6 @@
-package com.levi.medico;
+package com.levi.domain.medico;
 
-import com.levi.address.DataAddress;
+import com.levi.domain.address.DataAddress;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

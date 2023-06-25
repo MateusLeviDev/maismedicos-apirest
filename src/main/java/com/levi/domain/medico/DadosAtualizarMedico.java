@@ -1,6 +1,6 @@
-package com.levi.medico;
+package com.levi.domain.medico;
 
-import com.levi.address.DataAddress;
+import com.levi.domain.address.DataAddress;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosAtualizarMedico(

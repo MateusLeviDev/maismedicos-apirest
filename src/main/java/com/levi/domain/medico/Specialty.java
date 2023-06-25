@@ -1,4 +1,4 @@
-package com.levi.medico;
+package com.levi.domain.medico;
 
 public enum Specialty {
     ORTOPEDIA,
